@@ -1,0 +1,26 @@
+<h1>{{title}}</h1>
+<br />
+<div class="row">
+     {{#with customer}}
+     <form id="Customer" class="col-md-6 bg-info rounded">
+          <div>
+               <label class="col-md-3 text-right">First Name:</label>
+               <label class="text-normal">{{FirstName}}</label>
+          </div>
+          <div>
+               <label class="col-md-3 text-right">Last Name:</label>
+               <label class="text-normal">{{LastName}}</label>
+          </div>
+          <div>
+               <label class="col-md-3 text-right">E-Mail:</label>
+               <label class="text-normal">{{EMail}}</label>
+          </div>
+     </form>
+     {{/with}}
+</div>
+<br />
+<div class="row">
+     <div class="col-md-4">
+          <a href="/customer" class="btn btn-primary">Back</a>
+     </div>
+</div>

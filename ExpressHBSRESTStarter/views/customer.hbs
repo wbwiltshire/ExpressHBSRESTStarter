@@ -1,0 +1,58 @@
+<h1>{{title}}</h1>
+<br/>
+<div class="row">
+    <div class="col-md-12">
+        <a id="add" class="btn btn-primary" href="/customer/add">Add</a>
+        <a id="refresh" class="btn btn-primary" href="#">Refresh</a>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <div style="max-height: 1200px; overflow-y: auto">
+            <table class="ajaxGrid table table-striped table-bordered table-hover table-auto-number">
+                <thead>
+                    <tr id="colHeaders">
+                        <th id='Id'>ID</th>
+                        <th id='FirstName'>First Name</th>
+                        <th id='LastName'>Last Name</th>
+                        <th id='EMail'>E-Mail</th>
+                    </tr>
+                </thead>
+                <tbody id="CustomerList">
+                    {{#each customers}}
+                    <tr id="{{Id}}">
+                        <td><a href="/customer/{{Id}}">{{Id}}</a></td>
+                        <td>{{FirstName}}</td>
+                        <td>{{LastName}}</td>
+                        <td>{{EMail}}</td>
+                    </tr>
+                    {{/each}}
+                </tbody>
+                <tr id="noRecordsFound" style="display: none">
+                    <td colspan="20" style="text-align: left; background-color: white; color: red">No Records Found</td>
+                </tr>
+        </table>
+        </div>
+    </div>
+</div>
+<br />
+<div class="row">
+    <div class="col-md-4">
+        <a href="/" class="btn btn-primary">Back</a>
+    </div>
+</div>
+<script id="customerListHGrid" type="text/x-handlebars-template">
+    \{{#CustomerList}}
+    <tr id="\{{Id}}">
+        <td><a href="/customer/\{{Id}}">\{{Id}}</a></td>
+        <td>\{{FirstName}}</td>
+        <td>\{{LastName}}</td>
+        <td>\{{EMail}}</td>
+    </tr>
+    \{{/CustomerList}}
+</script>
+{{#contentFor 'pageScripts'}}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js" type="text/javascript"></script>
+<script src="/javascripts/ajaxcommon.js" type="text/javascript"></script>
+<script src="/javascripts/customer.js" type="text/javascript"></script>
+{{/contentFor}}
